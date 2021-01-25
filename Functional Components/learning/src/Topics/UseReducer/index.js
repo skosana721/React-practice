@@ -22,6 +22,15 @@ const reducer = (state, action) => {
           modalContent: "Please enter something",
         };
     }
+    if (action.type === "closeModal") {
+      return { ...state, isModalOpen: false };
+    }
+    if (action.type === 'REMOVE') {
+        const newPeople = state.people.filter(person => person.id !== action.payload)
+        return {
+            ...state, people: newPeople
+        }
+    }
     throw new Error('invalid input')
 }
 function Index () {
@@ -36,11 +45,15 @@ function Index () {
         } else {
            dispatch({type: 'NO_VALUE'}) 
         }
+        
+    }
+    const closeModal = () => {
+      dispatch({type: 'closeModal'})  
     }
     
     return (
         <>
-            {state.isModalOpen && <Modal content={state.modalContent} />} 
+            {state.isModalOpen && <Modal closeModal={closeModal} content={state.modalContent} />} 
             <form onSubmit={handleSubmit} className='form'>
                 <div>
                     <input type="text" onChange={(e)=> setName(e.target.value)}
@@ -51,9 +64,9 @@ function Index () {
             </form>
             {state.people.map(person => {
                 return (
-                    <div key={person.id}>
+                    <div key={person.id} className='item'>
                         <h4>{person.name}</h4>
-
+                       <button onClick={()=> dispatch({type: 'REMOVE', payload: person.id})}>Remove</button>
                     </div>
                 )
             })}
