@@ -1,5 +1,5 @@
-export const data = [{id:1, country: 'South Africa' },
-                    { id:2, country: 'Denmark' },
-                    { id:3, country: 'United Kingdom' },
-                    { id:4, country: 'France' }
+export const data = [{id:1, name: 'Sam' },
+                    { id:2, name: 'Den' },
+                    { id:3, name: 'James' },
+                    { id:4, name: 'Francis' }
 ]
