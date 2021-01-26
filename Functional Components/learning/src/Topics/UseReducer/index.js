@@ -4,35 +4,7 @@ import { data } from '../../data'
 import { v4 as uuidv4 } from 'uuid';
 
 // reducer function
-const reducer = (state, action) => {
-    console.log(state, action)
-    if (action.type === 'ADD_ITEM') {
-        const newItem = [...state.people, action.payload]
-        return {
-          ...state,
-          people: newItem,
-          isModalOpen: true,
-          modalContent: "Item added to list",
-        };
-    }
-    if (action.type === 'NO_VALUE') {
-        return {
-          ...state,
-          isModalOpen: true,
-          modalContent: "Please enter something",
-        };
-    }
-    if (action.type === "closeModal") {
-      return { ...state, isModalOpen: false };
-    }
-    if (action.type === 'REMOVE') {
-        const newPeople = state.people.filter(person => person.id !== action.payload)
-        return {
-            ...state, people: newPeople
-        }
-    }
-    throw new Error('invalid input')
-}
+import {reducer} from './reducer'
 function Index () {
     const [name, setName] = useState('')
     const [state, dispatch] = useReducer(reducer, { people: [], isModalOpen: false, modalContent: ''})
