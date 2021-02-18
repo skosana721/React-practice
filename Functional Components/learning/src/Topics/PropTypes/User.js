@@ -12,4 +12,7 @@ const User = ({ name }) => {
 User.propTypes = {
   name: PropTypes.string.isRequired,
 };
+User.defaultProp = {
+  name: "User name",
+};
 export default User;
