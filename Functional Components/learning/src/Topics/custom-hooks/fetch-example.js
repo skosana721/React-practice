@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useFetch } from "./useFetch";
 const URL = "https://jsonplaceholder.typicode.com/users";
 function FetchExample() {
-  const [user, setUser] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const getUsers = async () => {
-    const res = await fetch(URL);
-    const data = await res.json();
-    setUser(data);
-    setLoading(false);
-  };
-  useEffect(() => {
-    getUsers();
-  }, []);
+  const { loading, user } = useFetch(URL);
+  console.log(user);
   return (
     <div>
       <h1>{loading ? `...Loading` : `data`}</h1>

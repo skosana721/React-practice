@@ -1,7 +1,17 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
-function useFetch() {
-  return <div></div>;
+export function useFetch(url) {
+  const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getUsers = async () => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setUser(data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getUsers();
+  }, [url]);
+  return { loading, user };
 }
-
-export default useFetch;
