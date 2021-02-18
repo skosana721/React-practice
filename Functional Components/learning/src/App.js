@@ -1,5 +1,5 @@
 import "./App.css";
-import Setup from "./Topics/custom-hooks/fetch-example";
+import Setup from "./Topics/PropTypes/index";
 
 function App() {
   return (
