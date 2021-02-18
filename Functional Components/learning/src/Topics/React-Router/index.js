@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import About from "./about";
 import Error from "./error";
 import Home from "./home";
@@ -7,11 +8,14 @@ import Navbar from "./navbar";
 function Index() {
   return (
     <div>
-      <h2>React Router</h2>
-      <Navbar />
-      <Home />
-      <About />
-      <Error />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="*" component={Error} />
+        </Switch>
+      </Router>
     </div>
   );
 }
