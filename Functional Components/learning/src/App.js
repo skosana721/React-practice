@@ -1,5 +1,5 @@
 import "./App.css";
-import Setup from "./Topics/PropTypes/index";
+import Setup from "./Topics/React-Router/index";
 
 function App() {
   return (
