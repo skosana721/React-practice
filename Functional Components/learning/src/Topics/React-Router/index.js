@@ -4,6 +4,8 @@ import About from "./about";
 import Error from "./error";
 import Home from "./home";
 import Navbar from "./navbar";
+import People from "./people";
+import Person from "./person";
 
 function Index() {
   return (
@@ -12,6 +14,7 @@ function Index() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/people" component={People} />
           <Route path="/about" component={About} />
           <Route path="*" component={Error} />
         </Switch>
