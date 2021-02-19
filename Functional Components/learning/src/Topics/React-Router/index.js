@@ -16,6 +16,7 @@ function Index() {
           <Route path="/" exact component={Home} />
           <Route path="/people" component={People} />
           <Route path="/about" component={About} />
+          <Route path="/person/:id" children={<Person />} />
           <Route path="*" component={Error} />
         </Switch>
       </Router>
